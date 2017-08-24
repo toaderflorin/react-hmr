@@ -9750,14 +9750,22 @@ console.log('Bla bla')
 /***/ (function(module, exports, __webpack_require__) {
 
 /** @jsx React.DOM */const ReactDOM  = __webpack_require__(83)
-const Greeting = __webpack_require__(184)
+const Top = __webpack_require__(184)
+const Bottom = __webpack_require__(185)
+
+var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){App[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;App.prototype=Object.create(____SuperProtoOf____Class0);App.prototype.constructor=App;App.__superConstructor__=____Class0;function App(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
+  Object.defineProperty(App.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+    return React.createElement("div", null, 
+      React.createElement(Top, {name: "john"}), 
+      React.createElement(Bottom, null)
+    )
+  }});
+
 
 module.exports = function () {
-  var el = document.getElementById("root")
-  console.log(el)
-  ReactDOM.render(
-    // <h1>Hello, world!</h1>,
-    React.createElement(Greeting, {name: "john"}),
+  var el = document.getElementById("root")  
+  ReactDOM.render(    
+    React.createElement(App, null),
     el
   );
 }
@@ -22392,13 +22400,30 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 184 */
 /***/ (function(module, exports) {
 
-/** @jsx React.DOM */var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Greeting[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Greeting.prototype=Object.create(____SuperProtoOf____Class0);Greeting.prototype.constructor=Greeting;Greeting.__superConstructor__=____Class0;function Greeting(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
-  Object.defineProperty(Greeting.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+/** @jsx React.DOM */var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){Top[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;Top.prototype=Object.create(____SuperProtoOf____Class1);Top.prototype.constructor=Top;Top.__superConstructor__=____Class1;function Top(){"use strict";if(____Class1!==null){____Class1.apply(this,arguments);}}
+  Object.defineProperty(Top.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
     return React.createElement("h1", null, "Hello, ", this.props.name);
   }});
 
 
-module.exports = Greeting
+module.exports = Top
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports) {
+
+/** @jsx React.DOM */var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Bottom[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Bottom.prototype=Object.create(____SuperProtoOf____Class2);Bottom.prototype.constructor=Bottom;Bottom.__superConstructor__=____Class2;function Bottom(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
+  Object.defineProperty(Bottom.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+    var divStyle = {     
+      backgroundColor: 'red',
+      height: '200px'
+    };
+
+    return React.createElement("div", {style: divStyle})
+  }});
+
+
+module.exports = Bottom
 
 /***/ })
 /******/ ]);

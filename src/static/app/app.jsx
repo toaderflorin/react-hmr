@@ -1,12 +1,20 @@
 const ReactDOM  = require('react-dom')
-const Greeting = require('./top')
+const Top = require('./top')
+const Bottom = require('./bottom')
+
+class App extends React.Component {
+  render() {
+    return <div>
+      <Top name="john"></Top>
+      <Bottom></Bottom>
+    </div>
+  }
+}
 
 module.exports = function () {
-  var el = document.getElementById("root")
-  console.log(el)
-  ReactDOM.render(
-    // <h1>Hello, world!</h1>,
-    <Greeting name="john"></Greeting>,
+  var el = document.getElementById("root")  
+  ReactDOM.render(    
+    <App></App>,
     el
   );
 }
