@@ -1,8 +1,7 @@
-const f = require('./app2.jsx')
+const f = require('./app.jsx')
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   f()
 });
-
 
 console.log('Bla bla')

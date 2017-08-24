@@ -9743,7 +9743,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   f()
 });
 
-
 console.log('Bla bla')
 
 /***/ }),
@@ -9751,12 +9750,14 @@ console.log('Bla bla')
 /***/ (function(module, exports, __webpack_require__) {
 
 /** @jsx React.DOM */const ReactDOM  = __webpack_require__(83)
+const Greeting = __webpack_require__(184)
 
 module.exports = function () {
   var el = document.getElementById("root")
   console.log(el)
   ReactDOM.render(
-    React.createElement("h1", null, "Hello, world!"),
+    // <h1>Hello, world!</h1>,
+    React.createElement(Greeting, {name: "john"}),
     el
   );
 }
@@ -22386,6 +22387,18 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports) {
+
+/** @jsx React.DOM */var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Greeting[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Greeting.prototype=Object.create(____SuperProtoOf____Class0);Greeting.prototype.constructor=Greeting;Greeting.__superConstructor__=____Class0;function Greeting(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
+  Object.defineProperty(Greeting.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+    return React.createElement("h1", null, "Hello, ", this.props.name);
+  }});
+
+
+module.exports = Greeting
 
 /***/ })
 /******/ ]);
