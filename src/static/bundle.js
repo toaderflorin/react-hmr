@@ -60,22 +60,27 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('Bla bla');
+const f = __webpack_require__(1)
+f()
+console.log('Bla bla')
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(0);
-module.exports = __webpack_require__(0);
-
+/** @jsx React.DOM */module.exports = function () {
+  ReactDOM.render(
+    React.createElement("h1", null, "Hello, world!"),
+    document.getElementById('root')
+  );
+}
 
 /***/ })
 /******/ ]);

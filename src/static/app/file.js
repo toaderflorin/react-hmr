@@ -1,1 +1,3 @@
-console.log('Bla bla');
+const f = require('./app2')
+f()
+console.log('Bla bla')

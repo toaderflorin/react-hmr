@@ -65,9 +65,11 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('Bla bla');
+const f = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./app2\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+f()
+console.log('Bla bla')
 
 /***/ })
 /******/ ]);
