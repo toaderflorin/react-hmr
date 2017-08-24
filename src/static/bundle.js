@@ -22410,20 +22410,60 @@ module.exports = Top
 
 /***/ }),
 /* 185 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/** @jsx React.DOM */var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Bottom[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Bottom.prototype=Object.create(____SuperProtoOf____Class2);Bottom.prototype.constructor=Bottom;Bottom.__superConstructor__=____Class2;function Bottom(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
+/** @jsx React.DOM */const TaskList = __webpack_require__(186)
+
+var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Bottom[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Bottom.prototype=Object.create(____SuperProtoOf____Class2);Bottom.prototype.constructor=Bottom;Bottom.__superConstructor__=____Class2;function Bottom(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
   Object.defineProperty(Bottom.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
-    var divStyle = {     
-      backgroundColor: 'red',
-      height: '200px'
-    };
-
-    return React.createElement("div", {style: divStyle})
+    return React.createElement(TaskList, null)
   }});
 
 
 module.exports = Bottom
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/** @jsx React.DOM */const Task = __webpack_require__(187)
+
+var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){TaskList[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;TaskList.prototype=Object.create(____SuperProtoOf____Class3);TaskList.prototype.constructor=TaskList;TaskList.__superConstructor__=____Class3;function TaskList(){"use strict";if(____Class3!==null){____Class3.apply(this,arguments);}}
+  Object.defineProperty(TaskList.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";var $__0, $__1, $__2;
+    var stl = {
+      backgroundColor: 'yellow'
+    };
+
+    let tasks = ['John', 'Doe', 'Jane', 'Doe'];
+    let taskElements = [];    
+    
+    var t;for($__0=tasks,$__1=Array.isArray($__0),$__2=0,$__0=$__1?$__0:$__0[/*global Symbol*/typeof Symbol=="function"?Symbol.iterator:"@@iterator"]();;) {if($__1){if($__2>=$__0.length) break;t=$__0[$__2++];}else{$__2=$__0.next();if($__2.done) break;t=$__2.value;}
+      taskElements.push(React.createElement(Task, {src: t}))
+    }
+
+    return React.createElement("div", null, taskElements);
+  }});
+
+
+module.exports = TaskList
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports) {
+
+/** @jsx React.DOM */var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Task[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Task.prototype=Object.create(____SuperProtoOf____Class4);Task.prototype.constructor=Task;Task.__superConstructor__=____Class4;function Task(){"use strict";if(____Class4!==null){____Class4.apply(this,arguments);}}
+  Object.defineProperty(Task.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+    var stl = {
+      backgroundColor: 'yellow',
+      margin: '1px',
+      padding: '5px'
+    };
+
+    return React.createElement("div", {style: stl}, this.props.src);
+  }});
+
+
+module.exports = Task
 
 /***/ })
 /******/ ]);
