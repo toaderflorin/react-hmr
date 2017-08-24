@@ -23,6 +23,6 @@
     "react": "^15.6.1"
   },
   "devDependencies": {
-    "babel-plugin-transform-react-jsx": "^6.24.1"
+    "webpack": "^3.5.5"
   }
 }
