@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/toaderflorin/react-demo#readme",
   "dependencies": {
-    "react": "^15.6.1",
-    "express": "^4.13.4"
+    "babel": "^6.23.0",
+    "express": "^4.13.4",
+    "react": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1"
   }
 }
