@@ -10,9 +10,9 @@ class AddTask extends React.Component {
 
   render() {
     return <div className="top">
-      Add a task
-      <input type="text" value={this.state.taskText} onChange={this.handleChange} />
-      <button onClick={this.addTaskClick}>Add</button>
+      <span className="spaced-out">Add a task</span>
+      <input className="spaced-out" type="text" value={this.state.taskText} onChange={this.handleChange} />
+      <button className="spaced-out" onClick={this.addTaskClick}>Add</button>
     </div>;
   }
 

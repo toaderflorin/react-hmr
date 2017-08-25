@@ -17,3 +17,7 @@ body {
   margin: 1px;
   padding: 5px;
 }
+
+.spaced-out {
+  margin-right: 2px;
+}
