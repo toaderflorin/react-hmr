@@ -1,20 +1,17 @@
 const Task = require('./task.jsx')
 
-class TaskList extends React.Component {
-  render() {
-    var stl = {
+const TaskList = ({src}) => {  
+      var stl = {
       backgroundColor: 'yellow'
     };
-
-    let tasks = ['John', 'Doe', 'Jane', 'Doe'];
-    let taskElements = [];    
     
-    for (let t of tasks) {
+    let taskElements = [];      
+
+    for (let t of src) {
       taskElements.push(<Task src={t}/>)
     }
 
     return <div>{taskElements}</div>;
-  }
-}
+};
 
 module.exports = TaskList

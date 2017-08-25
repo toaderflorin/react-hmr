@@ -1,13 +1,5 @@
-class Task extends React.Component {
-  render() {
-    var stl = {
-      backgroundColor: 'yellow',
-      margin: '1px',
-      padding: '5px'
-    };
-
-    return <div style={stl}>{this.props.src}</div>;
-  }
-}
-
+const Task = ({src}) => {  
+  return <div key={Math.random()} className="task">{src}</div>;
+};
+ 
 module.exports = Task
