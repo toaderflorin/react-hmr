@@ -1,4 +1,4 @@
-class Top extends React.Component {
+class AddTask extends React.Component {
   constructor() {
     this.state = {
       taskText: 'asdasd'
@@ -15,9 +15,7 @@ class Top extends React.Component {
     </div>;
   }
 
-  handleChange(event) {
-    console.log(event.target.value);
-
+  handleChange(event) {  
     this.setState({
       taskText: event.target.value
     });
@@ -28,4 +26,4 @@ class Top extends React.Component {
   }
 }
 
-module.exports = Top
+module.exports = AddTask

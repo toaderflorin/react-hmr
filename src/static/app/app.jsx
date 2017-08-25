@@ -1,18 +1,18 @@
 const ReactDOM  = require('react-dom')
-const Top = require('./top')
+const AddTask = require('./addTask')
 const TaskList = require('./taskList')
 
 class App extends React.Component {
   constructor() {    
     this.butClk = this.butClk.bind(this);
     this.state = {
-      tasks: ['task1', 'task2']
+      tasks: []
     };
   }
   
   render() {
     return <div className="content">
-      <Top name="john" clk={this.butClk}></Top>
+      <AddTask name="john" clk={this.butClk}></AddTask>
       <TaskList src={this.state.tasks}></TaskList>
     </div>
   }  

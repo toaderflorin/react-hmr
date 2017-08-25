@@ -1,4 +1,4 @@
-const Task = require('./task.jsx')
+const Task = require('./task')
 
 const TaskList = ({src}) => {  
       var stl = {

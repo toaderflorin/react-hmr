@@ -9748,20 +9748,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /** @jsx React.DOM */const ReactDOM  = __webpack_require__(83)
-const Top = __webpack_require__(184)
+const AddTask = __webpack_require__(184)
 const TaskList = __webpack_require__(185)
 
 var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){App[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;App.prototype=Object.create(____SuperProtoOf____Class0);App.prototype.constructor=App;App.__superConstructor__=____Class0;
   function App() {"use strict";    
     this.butClk = this.butClk.bind(this);
     this.state = {
-      tasks: ['task1', 'task2']
+      tasks: []
     };
   }
   
   Object.defineProperty(App.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
     return React.createElement("div", {className: "content"}, 
-      React.createElement(Top, {name: "john", clk: this.butClk}), 
+      React.createElement(AddTask, {name: "john", clk: this.butClk}), 
       React.createElement(TaskList, {src: this.state.tasks})
     )
   }});  
@@ -22412,8 +22412,8 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 184 */
 /***/ (function(module, exports) {
 
-/** @jsx React.DOM */var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){Top[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;Top.prototype=Object.create(____SuperProtoOf____Class1);Top.prototype.constructor=Top;Top.__superConstructor__=____Class1;
-  function Top() {"use strict";
+/** @jsx React.DOM */var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){AddTask[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;AddTask.prototype=Object.create(____SuperProtoOf____Class1);AddTask.prototype.constructor=AddTask;AddTask.__superConstructor__=____Class1;
+  function AddTask() {"use strict";
     this.state = {
       taskText: 'asdasd'
     };
@@ -22421,7 +22421,7 @@ module.exports = ReactDOMInvalidARIAHook;
     this.butClk = this.butClk.bind(this);
   }
 
-  Object.defineProperty(Top.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+  Object.defineProperty(AddTask.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
     return React.createElement("div", {className: "top"}, 
       "Add a task", 
       React.createElement("input", {type: "text", value: this.state.taskText, onChange: this.handleChange.bind(this)}), 
@@ -22429,20 +22429,18 @@ module.exports = ReactDOMInvalidARIAHook;
     );
   }});
 
-  Object.defineProperty(Top.prototype,"handleChange",{writable:true,configurable:true,value:function(event) {"use strict";
-    console.log(event.target.value);
-
+  Object.defineProperty(AddTask.prototype,"handleChange",{writable:true,configurable:true,value:function(event) {"use strict";  
     this.setState({
       taskText: event.target.value
     });
   }});
 
-  Object.defineProperty(Top.prototype,"butClk",{writable:true,configurable:true,value:function() {"use strict";    
+  Object.defineProperty(AddTask.prototype,"butClk",{writable:true,configurable:true,value:function() {"use strict";    
     this.props.clk(this.state.taskText);
   }});
 
 
-module.exports = Top
+module.exports = AddTask
 
 /***/ }),
 /* 185 */
@@ -22471,7 +22469,7 @@ module.exports = TaskList
 /***/ (function(module, exports) {
 
 /** @jsx React.DOM */const Task = function($__0)  {var src=$__0.src;  
-  return React.createElement("div", {key: Math.random(), className: "task"}, src);
+  return React.createElement("div", {className: "task"}, src);
 };
  
 module.exports = Task
