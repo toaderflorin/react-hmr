@@ -1,17 +1,8 @@
 const Task = require('./task')
 
-const TaskList = ({src}) => {  
-      var stl = {
-      backgroundColor: 'yellow'
-    };
-    
-    let taskElements = [];      
-
-    for (let t of src) {
-      taskElements.push(<Task src={t}/>)
-    }
-
-    return <div>{taskElements}</div>;
+const TaskList = ({taskList}) => {    
+  let taskElements = taskList.map((task) => <Task task={task} />);
+  return <div>{taskElements}</div>;
 };
 
 module.exports = TaskList

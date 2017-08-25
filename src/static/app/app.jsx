@@ -4,31 +4,34 @@ const TaskList = require('./taskList')
 
 class App extends React.Component {
   constructor() {    
-    this.butClk = this.butClk.bind(this);
+    this.addTaskClick = this.addTaskClick.bind(this);
     this.state = {
-      tasks: []
+      taskList: []
     };
   }
   
   render() {
     return <div className="content">
-      <AddTask name="john" clk={this.butClk}></AddTask>
-      <TaskList src={this.state.tasks}></TaskList>
+      <AddTask addTaskClick={this.addTaskClick}></AddTask>
+      <TaskList taskList={this.state.taskList}></TaskList>
     </div>
-  }  
+  }
 
-  butClk(text) {
-    this.state.tasks.push(text)
+  addTaskClick(text) {
+    console.log('Got here:', text);
+
+    this.state.taskList.push(text)
+    
     this.setState({
-      tasks: this.state.tasks
+      tasks: this.state.taskList
     });
   }
 }
 
-module.exports = function () {
+document.addEventListener("DOMContentLoaded", function(event) { 
   var el = document.getElementById("root");  
   ReactDOM.render(    
     <App></App>,
     el
   );
-}
+});

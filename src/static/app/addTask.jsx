@@ -1,28 +1,31 @@
 class AddTask extends React.Component {
   constructor() {
     this.state = {
-      taskText: 'asdasd'
+      taskText: ''
     };
 
-    this.butClk = this.butClk.bind(this);
+    this.addTaskClick = this.addTaskClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     return <div className="top">
       Add a task
-      <input type="text" value={this.state.taskText} onChange={this.handleChange.bind(this)} />
-      <button onClick={this.butClk}>Add</button>
+      <input type="text" value={this.state.taskText} onChange={this.handleChange} />
+      <button onClick={this.addTaskClick}>Add</button>
     </div>;
   }
 
-  handleChange(event) {  
+  handleChange(event) {
+    console.log(event.target.value);  
+    
     this.setState({
       taskText: event.target.value
     });
   }
 
-  butClk() {    
-    this.props.clk(this.state.taskText);
+  addTaskClick() {    
+    this.props.addTaskClick(this.state.taskText);
   }
 }
 

@@ -1,5 +1,5 @@
-const Task = ({src}) => {  
-  return <div className="task">{src}</div>;
+const Task = ({task}) => {  
+  return <div className="task">{task}</div>;
 };
  
 module.exports = Task
