@@ -1,6 +1,7 @@
-const ReactDOM  = require('react-dom')
-const AddTask = require('./addTask')
-const TaskList = require('./taskList')
+const ReactDOM  = require('react-dom');
+const axios = require('axios');
+const AddTask = require('./addTask');
+const TaskList = require('./taskList');
 
 class App extends React.Component {
   constructor() {    
@@ -17,11 +18,8 @@ class App extends React.Component {
     </div>
   }
 
-  addTaskClick(text) {
-    console.log('Got here:', text);
-
-    this.state.taskList.push(text)
-    
+  addTaskClick(text) {  
+    this.state.taskList.push(text);
     this.setState({
       tasks: this.state.taskList
     });

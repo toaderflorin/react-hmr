@@ -5,4 +5,4 @@ const TaskList = ({taskList}) => {
   return <div>{taskElements}</div>;
 };
 
-module.exports = TaskList
+module.exports = TaskList;

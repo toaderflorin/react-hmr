@@ -16,17 +16,15 @@ class AddTask extends React.Component {
     </div>;
   }
 
-  handleChange(event) {
-    console.log(event.target.value);  
-    
+  handleChange(event) {        
     this.setState({
       taskText: event.target.value
     });
   }
 
-  addTaskClick() {    
+  addTaskClick() {
     this.props.addTaskClick(this.state.taskText);
   }
 }
 
-module.exports = AddTask
+module.exports = AddTask;

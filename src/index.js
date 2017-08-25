@@ -7,8 +7,14 @@ const start = async () => {
   app.listen(3000, () => console.log('Started successfully, open localhost:3000.'))
 
   app.get('/', (req, res) => {    
-    var contents = fs.readFileSync('content/index.html', 'utf8')    
-    res.send('heloooo')
+    let contents = fs.readFileSync('content/index.html', 'utf8');
+    res.send('heloooo');
+  })
+
+  app.get('/tasks', (req, res) => {    
+    let contents = fs.readFileSync('content/index.html', 'utf8');
+    let x = ['bla bla bla', 'asdasdas'];
+    res.send(x);
   })
 }
 

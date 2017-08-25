@@ -2,4 +2,4 @@ const Task = ({task}) => {
   return <div className="task">{task}</div>;
 };
  
-module.exports = Task
+module.exports = Task;
