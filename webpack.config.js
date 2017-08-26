@@ -1,4 +1,5 @@
 const path = require('path');
+const AsyncAwaitPlugin = require('webpack-async-await') ;
 
 module.exports = {
   entry: './src/static/app/app.jsx',
@@ -19,5 +20,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  plugins: [
+    new AsyncAwaitPlugin({})
+  ]
 }

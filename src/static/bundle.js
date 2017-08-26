@@ -10433,16 +10433,13 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
     this.componentDidMount = this.componentDidMount(this);    
 
     this.state = {
-      taskList: ['Joe']
+      taskList: ['']
     };  
   }
 
   Object.defineProperty(App.prototype,"componentDidMount",{writable:true,configurable:true,value:function() {"use strict";
     axios.get('/tasks')
       .then(function(response)  {
-        console.log(this.state);
-        console.log(response.data);
-
         this.setState({            
           taskList: response.data
         });

@@ -16,9 +16,6 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/tasks')
       .then((response) => {
-        console.log(this.state);
-        console.log(response.data);
-
         this.setState({            
           taskList: response.data
         });

@@ -24,7 +24,8 @@
     "express": "^4.13.4",
     "guid": "0.0.12",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "webpack-async-await": "^1.1.0"
   },
   "devDependencies": {
     "jsx-loader": "^0.13.2",
