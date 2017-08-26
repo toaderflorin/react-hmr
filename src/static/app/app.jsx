@@ -6,15 +6,29 @@ const TaskList = require('./taskList');
 class App extends React.Component {
   constructor() {    
     this.addTaskClick = this.addTaskClick.bind(this);
+    this.componentDidMount = this.componentDidMount(this);    
+
     this.state = {
-      taskList: []
-    };
+      taskList: ['']
+    };  
+  }
+
+  componentDidMount() {
+    axios.get('/tasks')
+      .then((response) => {
+        console.log(this.state);
+        console.log(response.data);
+
+        this.setState({            
+          taskList: response.data
+        });
+      });
   }
   
   render() {
     return <div className="content">
-      <AddTask addTaskClick={this.addTaskClick}></AddTask>
-      <TaskList taskList={this.state.taskList}></TaskList>
+      <AddTask addTaskClick={this.addTaskClick} />
+      <TaskList taskList={this.state.taskList} />
     </div>
   }
 
@@ -27,9 +41,5 @@ class App extends React.Component {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-  var el = document.getElementById("root");  
-  ReactDOM.render(    
-    <App></App>,
-    el
-  );
+  ReactDOM.render(<App></App>, document.getElementById('root'));
 });

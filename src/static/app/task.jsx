@@ -1,9 +1,7 @@
 const Task = ({task}) => {  
-  return 
-    <div className="task">
-      {task}
-      <button>Remove</button>
-    </div>;
+  return <div className="task">
+    {task}
+  </div>;
 };
  
 module.exports = Task;

@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 class AddTask extends React.Component {
   constructor() {
     this.state = {
@@ -5,10 +7,10 @@ class AddTask extends React.Component {
     };
 
     this.addTaskClick = this.addTaskClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);    
   }
 
-  render() {
+  render() {     
     return <div className="top">
       <span className="spaced-out">Add a task</span>
       <input className="spaced-out" type="text" value={this.state.taskText} onChange={this.handleChange} />
