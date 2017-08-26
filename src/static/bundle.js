@@ -24006,7 +24006,11 @@ module.exports = TaskList;
 /***/ (function(module, exports) {
 
 /** @jsx React.DOM */const Task = function($__0)  {var task=$__0.task;  
-  return React.createElement("div", {className: "task"}, task);
+  return 
+    React.createElement("div", {className: "task"}, 
+      task, 
+      React.createElement("button", null, "Remove")
+    );
 };
  
 module.exports = Task;
