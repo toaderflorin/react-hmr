@@ -1,11 +1,15 @@
 const axios = require('axios');
 
 class TaskService {
-  async getTasks() {
-
+  getTasks() {
+    return new Promise((resolve, reject) => {
+      axios.get('/tasks').then((response) => {
+        resolve(response.data);        
+      });
+    });    
   }
 
-  async addTask() {
+  addTask() {
     axios.get('/tasks')
       .then((response) => {
         this.setState({            
@@ -14,7 +18,9 @@ class TaskService {
       });
   }
 
-  async removeTask() {
+  removeTask() {
 
   }
 }
+
+module.exports = new TaskService();

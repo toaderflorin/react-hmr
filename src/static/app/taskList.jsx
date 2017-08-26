@@ -5,11 +5,11 @@ const TaskList = ({taskList}) => {
     return <Task task={task} />;
   });  
 
-  console.log(els);
-
-  return <div>
-    {els}
-  </div>;
+  return (
+    <div>
+      {els}
+    </div>
+  );  
 };
 
 module.exports = TaskList;

@@ -1,5 +1,5 @@
-const ReactDOM  = require('react-dom');
 const axios = require('axios');
+const service = require('./service');
 const AddTask = require('./addTask');
 const TaskList = require('./taskList');
 
@@ -9,24 +9,25 @@ class App extends React.Component {
     this.componentDidMount = this.componentDidMount(this);    
 
     this.state = {
-      taskList: ['']
+      taskList: []
     };  
   }
 
   componentDidMount() {
-    axios.get('/tasks')
-      .then((response) => {
-        this.setState({            
-          taskList: response.data
-        });
+    service.getTasks().then(results => {
+      this.setState({
+        tasks: results
       });
+    });   
   }
   
   render() {
-    return <div className="content">
-      <AddTask addTaskClick={this.addTaskClick} />
-      <TaskList taskList={this.state.taskList} />
-    </div>
+    return (
+      <div className="content">
+        <AddTask addTaskClick={this.addTaskClick} />
+        <TaskList taskList={this.state.taskList} />
+      </div>
+    )
   }
 
   addTaskClick(text) {  
@@ -37,6 +38,4 @@ class App extends React.Component {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  ReactDOM.render(<App></App>, document.getElementById('root'));
-});
+module.exports = App
