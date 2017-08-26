@@ -9,13 +9,12 @@ class TaskService {
     });    
   }
 
-  addTask() {
-    axios.get('/tasks')
-      .then((response) => {
-        this.setState({            
-          taskList: response.data
-        });
+  addTask(text) {
+    return new Promise((resolve, reject) => {
+      axios.post('/tasks', {task: text}).then((response) => {
+        resolve();
       });
+    });
   }
 
   removeTask() {

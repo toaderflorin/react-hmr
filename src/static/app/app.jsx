@@ -16,7 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     service.getTasks().then(results => {
       this.setState({
-        tasks: results
+        taskList: results
       });
     });   
   }
@@ -31,10 +31,14 @@ class App extends React.Component {
   }
 
   addTaskClick(text) {  
-    this.state.taskList.push(text);
-    this.setState({
-      tasks: this.state.taskList
-    });
+    service.addTask(text)
+      .then(() => service.getTasks())
+      .then((results) => {
+        console.log(results);
+        this.setState({
+          taskList: results
+        });
+      });  
   }
 }
 

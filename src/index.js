@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const guid = require('guid');
 const bodyParser = require('body-parser');
 
-const tasks = ['task1', 'task2', 'task3'];
+const tasks = [];
 
 app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json());
@@ -17,15 +16,9 @@ app.get('/tasks', (req, res) => {
 
 app.post('/tasks', (req, res) => {
   res.statusCode = 200;
-  const guid = guid.raw();
-  const taskText = req.body.task;
+  const taskText = req.body.task;  
 
-  const obj = {
-    guid,
-    taskText
-  };
-
-  tasks.push(obj);
+  tasks.push(taskText);
   res.send('');
 });
 

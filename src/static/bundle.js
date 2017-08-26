@@ -23077,7 +23077,7 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
   Object.defineProperty(App.prototype,"componentDidMount",{writable:true,configurable:true,value:function() {"use strict";
     service.getTasks().then(function(results)  {
       this.setState({
-        tasks: results
+        taskList: results
       });
     }.bind(this));   
   }});
@@ -23092,10 +23092,14 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
   }});
 
   Object.defineProperty(App.prototype,"addTaskClick",{writable:true,configurable:true,value:function(text) {"use strict";  
-    this.state.taskList.push(text);
-    this.setState({
-      tasks: this.state.taskList
-    });
+    service.addTask(text)
+      .then(function()  {return service.getTasks();})
+      .then(function(results)  {
+        console.log(results);
+        this.setState({
+          taskList: results
+        });
+      }.bind(this));  
   }});
 
 
@@ -23984,13 +23988,12 @@ class TaskService {
     });    
   }
 
-  addTask() {
-    axios.get('/tasks')
-      .then((response) => {
-        this.setState({            
-          taskList: response.data
-        });
+  addTask(text) {
+    return new Promise((resolve, reject) => {
+      axios.post('/tasks', {task: text}).then((response) => {
+        resolve();
       });
+    });
   }
 
   removeTask() {
