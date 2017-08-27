@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
-const tasks = [];
+let tasks = [];
 
 app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json());
@@ -14,16 +14,15 @@ app.get('/tasks', (req, res) => {
   res.send(JSON.stringify(tasks));
 });
 
-app.post('/tasks', (req, res) => {
-  res.statusCode = 200;
-  const taskText = req.body.task;  
-
+app.post('/tasks', (req, res) => {  
+  const taskText = req.body.task;
   tasks.push(taskText);
   res.send('');
 });
 
-app.delete('/tasks/:id', (req, res) => {
-  tasks.indexOf();
+app.delete('/tasks', (req, res) => {  
+  // tasks.splice(req.params.id, 1);
+  tasks = [];
   res.statusCode = 200;
   res.send('');
 });

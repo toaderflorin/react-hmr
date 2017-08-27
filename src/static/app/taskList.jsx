@@ -9,7 +9,7 @@ const TaskList = ({taskList}) => {
     <div>
       {els}
     </div>
-  );  
+  );
 };
 
 module.exports = TaskList;

@@ -4,7 +4,7 @@ body {
 }
 
 .content {
-  width: 960px;
+  width: 840px;
   margin: 5px auto;  
 }
 
@@ -13,8 +13,8 @@ body {
 }
 
 .task {
-  background: yellow;
-  margin: 1px;
+  background: #f8f8f8;
+  margin-bottom: 2px;
   padding: 5px;
 }
 

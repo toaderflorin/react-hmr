@@ -18,7 +18,12 @@ class TaskService {
   }
 
   removeTask() {
-
+    console.log('Got here.');
+    return new Promise((resolve, reject) => {
+      axios.delete('/tasks}').then(() => {
+        resolve();
+      });
+    });
   }
 }
 

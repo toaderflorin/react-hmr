@@ -1,4 +1,3 @@
-const axios = require('axios');
 const service = require('./service');
 const AddTask = require('./addTask');
 const TaskList = require('./taskList');
@@ -18,7 +17,7 @@ class App extends React.Component {
       this.setState({
         taskList: results
       });
-    });   
+    }); 
   }
   
   render() {
@@ -34,7 +33,6 @@ class App extends React.Component {
     service.addTask(text)
       .then(() => service.getTasks())
       .then((results) => {
-        console.log(results);
         this.setState({
           taskList: results
         });
