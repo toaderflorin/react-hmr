@@ -23143,14 +23143,15 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
   }});
 
   Object.defineProperty(App.prototype,"deleteTaskClick",{writable:true,configurable:true,value:function(task) {"use strict";
-    console.log('Got here!');
-    service.removeTask(task)
+    if (confirm('Are you sure')) {
+        service.removeTask(task)
       .then(function()  {return service.getTasks();})
       .then(function(results)  {
         this.setState({
           taskList: results
         });
       }.bind(this));
+    }
   }});
 
 

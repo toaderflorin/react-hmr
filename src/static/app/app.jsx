@@ -47,14 +47,15 @@ class App extends React.Component {
   }
 
   deleteTaskClick(task) {
-    console.log('Got here!');
-    service.removeTask(task)
+    if (confirm('Are you sure')) {
+        service.removeTask(task)
       .then(() => service.getTasks())
       .then((results) => {
         this.setState({
           taskList: results
         });
       });
+    }
   }
 }
 
