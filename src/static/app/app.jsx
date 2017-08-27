@@ -3,13 +3,14 @@ const AddTask = require('./addTask');
 const TaskList = require('./taskList');
 
 class App extends React.Component {
-  constructor() {    
+  constructor() {
     this.addTaskClick = this.addTaskClick.bind(this);
-    this.componentDidMount = this.componentDidMount(this);    
+    this.deleteTaskClick = this.deleteTaskClick.bind(this);
+    this.componentDidMount = this.componentDidMount(this);
 
     this.state = {
       taskList: []
-    };  
+    };
   }
 
   componentDidMount() {
@@ -17,26 +18,43 @@ class App extends React.Component {
       this.setState({
         taskList: results
       });
-    }); 
+    });
   }
-  
+
   render() {
     return (
       <div className="content">
         <AddTask addTaskClick={this.addTaskClick} />
-        <TaskList taskList={this.state.taskList} />
+        <TaskList taskList={this.state.taskList} deleteTaskClick={this.deleteTaskClick} />
       </div>
     )
   }
 
-  addTaskClick(text) {  
-    service.addTask(text)
+  addTaskClick(text) {
+    const index = this.state.taskList.indexOf(text);
+    
+    if (index === -1) {
+      service.addTask(text)
+        .then(() => service.getTasks())
+        .then((results) => {
+          this.setState({
+            taskList: results
+          });
+        });
+    } else {
+      alert('Task already exists.');
+    }
+  }
+
+  deleteTaskClick(task) {
+    console.log('Got here!');
+    service.removeTask(task)
       .then(() => service.getTasks())
       .then((results) => {
         this.setState({
           taskList: results
         });
-      });  
+      });
   }
 }
 
