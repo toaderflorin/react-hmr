@@ -48,7 +48,7 @@ class App extends React.Component {
 
   deleteTaskClick(task) {
     if (confirm('Are you sure')) {
-        service.removeTask(task)
+      service.removeTask(task)
       .then(() => service.getTasks())
       .then((results) => {
         this.setState({
@@ -59,4 +59,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App
+module.exports = App;
