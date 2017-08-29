@@ -1,8 +1,8 @@
 const Task = require('./task');
 
-const TaskList = ({ taskList, deleteTaskClick }) => {
+const TaskList = ({ taskList, deleteTask }) => {
   const els = taskList.map((task) => {
-    return <Task task={task} deleteTaskClick={deleteTaskClick} />;
+    return <Task task={task} deleteTask={deleteTask} />;
   });
 
   return (

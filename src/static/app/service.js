@@ -17,7 +17,7 @@ class TaskService {
     });
   }
 
-  removeTask(task) {
+  deleteTask(task) {
     console.log('Removing task.');
     return new Promise((resolve, reject) => {
       axios.delete('/tasks/' + task).then(() => {

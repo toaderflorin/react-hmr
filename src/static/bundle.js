@@ -10166,7 +10166,7 @@ class TaskService {
     });
   }
 
-  removeTask(task) {
+  deleteTask(task) {
     console.log('Removing task.');
     return new Promise((resolve, reject) => {
       axios.delete('/tasks/' + task).then(() => {
@@ -23100,58 +23100,49 @@ const TaskList = __webpack_require__(212);
 
 var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){App[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;App.prototype=Object.create(____SuperProtoOf____Class0);App.prototype.constructor=App;App.__superConstructor__=____Class0;
   function App() {"use strict";
-    this.addTaskClick = this.addTaskClick.bind(this);
-    this.deleteTaskClick = this.deleteTaskClick.bind(this);
-    this.componentDidMount = this.componentDidMount(this);
-
+    this.addTask = this.addTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
+    this.update = this.update.bind(this);
     this.state = {
       taskList: []
     };
   }
 
   Object.defineProperty(App.prototype,"componentDidMount",{writable:true,configurable:true,value:function() {"use strict";
-    service.getTasks().then(function(results)  {
-      this.setState({
-        taskList: results
-      });
-    }.bind(this));
+    update();
   }});
 
   Object.defineProperty(App.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
     return (
       React.createElement("div", {className: "content"}, 
-        React.createElement(AddTask, {addTaskClick: this.addTaskClick}), 
-        React.createElement(TaskList, {taskList: this.state.taskList, deleteTaskClick: this.deleteTaskClick})
+        React.createElement(AddTask, {addTask: this.addTask}), 
+        React.createElement(TaskList, {taskList: this.state.taskList, deleteTask: this.deleteTask})
       )
     )
   }});
 
-  Object.defineProperty(App.prototype,"addTaskClick",{writable:true,configurable:true,value:function(text) {"use strict";
+  Object.defineProperty(App.prototype,"addTask",{writable:true,configurable:true,value:function(text) {"use strict";
     const index = this.state.taskList.indexOf(text);
     
     if (index === -1) {
-      service.addTask(text)
-        .then(function()  {return service.getTasks();})
-        .then(function(results)  {
-          this.setState({
-            taskList: results
-          });
-        }.bind(this));
+      service.addTask(text).then(this.update);
     } else {
       alert('Task already exists.');
     }
   }});
 
-  Object.defineProperty(App.prototype,"deleteTaskClick",{writable:true,configurable:true,value:function(task) {"use strict";
+  Object.defineProperty(App.prototype,"deleteTask",{writable:true,configurable:true,value:function(task) {"use strict";
     if (confirm('Are you sure')) {
-      service.removeTask(task)
-      .then(function()  {return service.getTasks();})
-      .then(function(results)  {
-        this.setState({
-          taskList: results
-        });
-      }.bind(this));
+      service.deleteTask(task).then(this.update);
     }
+  }});
+
+  Object.defineProperty(App.prototype,"update",{writable:true,configurable:true,value:function() {"use strict";
+    service.getTasks().then(function(results)  {
+      this.setState({
+        taskList: results
+      });
+    }.bind(this));
   }});
 
 
@@ -24037,7 +24028,7 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
       taskText: ''
     };
 
-    this.addTaskClick = this.addTaskClick.bind(this);
+    this.addTask = this.addTask.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -24046,7 +24037,7 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
       React.createElement("div", {className: "top"}, 
         React.createElement("span", {className: "spaced-out"}, "Add a task"), 
         React.createElement("input", {className: "spaced-out", type: "text", value: this.state.taskText, onChange: this.handleChange}), 
-        React.createElement("button", {className: "spaced-out", onClick: this.addTaskClick}, "Add")
+        React.createElement("button", {className: "spaced-out", onClick: this.props.addTask.bind(this, this.state.taskText)}, "Add")
       )
     );
   }});
@@ -24057,8 +24048,8 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
     });
   }});
 
-  Object.defineProperty(AddTask.prototype,"addTaskClick",{writable:true,configurable:true,value:function() {"use strict";
-    this.props.addTaskClick(this.state.taskText);
+  Object.defineProperty(AddTask.prototype,"addTask",{writable:true,configurable:true,value:function() {"use strict";
+    this.props.addTask(this.state.taskText);
   }});
 
 
@@ -24070,9 +24061,9 @@ module.exports = AddTask;
 
 /** @jsx React.DOM */const Task = __webpack_require__(213);
 
-const TaskList = function($__0   )  {var taskList=$__0.taskList,deleteTaskClick=$__0.deleteTaskClick;
+const TaskList = function($__0   )  {var taskList=$__0.taskList,deleteTask=$__0.deleteTask;
   const els = taskList.map(function(task)  {
-    return React.createElement(Task, {task: task, deleteTaskClick: deleteTaskClick});
+    return React.createElement(Task, {task: task, deleteTask: deleteTask});
   });
 
   return (
@@ -24090,10 +24081,10 @@ module.exports = TaskList;
 
 /** @jsx React.DOM */const service = __webpack_require__(83);
 
-const Task = function($__0   )  {var task=$__0.task,deleteTaskClick=$__0.deleteTaskClick;
+const Task = function($__0   )  {var task=$__0.task,deleteTask=$__0.deleteTask;
   return (
     React.createElement("div", {className: "task"}, 
-      React.createElement("button", {onClick: deleteTaskClick.bind(this, task)}, "Delete"), 
+      React.createElement("button", {onClick: deleteTask.bind(this, task)}, "Delete"), 
       " ", 
       task
     )
