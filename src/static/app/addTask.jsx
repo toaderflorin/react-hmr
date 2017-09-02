@@ -1,20 +1,22 @@
-const axios = require('axios');
+import axios from 'axios'
 
 class AddTask extends React.Component {
   constructor() {
+    super()
+    
     this.state = {
       taskText: ''
     };
-
-    this.handleChange = this.handleChange.bind(this);
+    
+    this.handleChange = this.handleChange.bind(this)
   }
 
   render() {
     return (
       <div className="top">
-        <span className="spaced-out">Add a task</span>
-        <input className="spaced-out" type="text" value={this.state.taskText} onChange={this.handleChange} />
-        <button className="spaced-out" onClick={this.props.addTask.bind(this, this.state.taskText)}>Add</button>
+        <span>Add a task</span>
+        <input type="text" value={this.state.taskText} onChange={this.handleChange} />
+        <button onClick={this.props.addTask.bind(this, this.state.taskText)}>Add</button>
       </div>
     );
   }
@@ -26,4 +28,4 @@ class AddTask extends React.Component {
   }
 }
 
-module.exports = AddTask;
+export default AddTask

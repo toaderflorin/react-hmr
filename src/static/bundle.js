@@ -10145,22 +10145,25 @@ module.exports = getHostComponentFromComposite;
 
 /***/ }),
 /* 83 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const axios = __webpack_require__(84);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
 
 class TaskService {
   getTasks() {
     return new Promise((resolve, reject) => {
-      axios.get('/tasks').then((response) => {
-        resolve(response.data);        
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/tasks').then(response => {
+        resolve(response.data);
       });
-    });    
+    });
   }
 
   addTask(text) {
     return new Promise((resolve, reject) => {
-      axios.post('/tasks', {task: text}).then((response) => {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/tasks', { task: text }).then(response => {
         resolve();
       });
     });
@@ -10169,14 +10172,14 @@ class TaskService {
   deleteTask(task) {
     console.log('Removing task.');
     return new Promise((resolve, reject) => {
-      axios.delete('/tasks/' + task).then(() => {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/tasks/' + task).then(() => {
         resolve();
       });
     });
   }
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = TaskService;
 
-module.exports = new TaskService();
 
 /***/ }),
 /* 84 */
@@ -10455,13 +10458,18 @@ module.exports = Cancel;
 
 /***/ }),
 /* 90 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/** @jsx React.DOM */const ReactDOM  = __webpack_require__(91);
-const App = __webpack_require__(192);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app__ = __webpack_require__(192);
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  __WEBPACK_IMPORTED_MODULE_0_react_dom___default.a.render(React.createElement(__WEBPACK_IMPORTED_MODULE_1__app__["a" /* default */], null), document.getElementById('root'));
 });
 
 /***/ }),
@@ -23092,61 +23100,69 @@ module.exports = ReactDOMInvalidARIAHook;
 
 /***/ }),
 /* 192 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/** @jsx React.DOM */const service = __webpack_require__(83);
-const AddTask = __webpack_require__(211);
-const TaskList = __webpack_require__(212);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__addTask__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__taskList__ = __webpack_require__(212);
 
-var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){App[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;App.prototype=Object.create(____SuperProtoOf____Class0);App.prototype.constructor=App;App.__superConstructor__=____Class0;
-  function App() {"use strict";
+
+
+
+class App extends React.Component {
+  constructor() {
+    super();
+
     this.addTask = this.addTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
     this.update = this.update.bind(this);
+    this.service = new __WEBPACK_IMPORTED_MODULE_0__service__["a" /* default */]();
+
     this.state = {
       taskList: []
     };
   }
 
-  Object.defineProperty(App.prototype,"componentDidMount",{writable:true,configurable:true,value:function() {"use strict";
-    update();
-  }});
+  componentDidMount() {
+    this.update();
+  }
 
-  Object.defineProperty(App.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
-    return (
-      React.createElement("div", {className: "content"}, 
-        React.createElement(AddTask, {addTask: this.addTask}), 
-        React.createElement(TaskList, {taskList: this.state.taskList, deleteTask: this.deleteTask})
-      )
-    )
-  }});
+  render() {
+    return React.createElement(
+      'div',
+      { className: 'content' },
+      React.createElement(__WEBPACK_IMPORTED_MODULE_1__addTask__["a" /* default */], { addTask: this.addTask }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_2__taskList__["a" /* default */], { taskList: this.state.taskList, deleteTask: this.deleteTask })
+    );
+  }
 
-  Object.defineProperty(App.prototype,"addTask",{writable:true,configurable:true,value:function(text) {"use strict";
+  addTask(text) {
     const index = this.state.taskList.indexOf(text);
-    
+
     if (index === -1) {
-      service.addTask(text).then(this.update);
+      this.service.addTask(text).then(this.update);
     } else {
       alert('Task already exists.');
     }
-  }});
+  }
 
-  Object.defineProperty(App.prototype,"deleteTask",{writable:true,configurable:true,value:function(task) {"use strict";
+  deleteTask(task) {
     if (confirm('Are you sure')) {
-      service.deleteTask(task).then(this.update);
+      this.service.deleteTask(task).then(this.update);
     }
-  }});
+  }
 
-  Object.defineProperty(App.prototype,"update",{writable:true,configurable:true,value:function() {"use strict";
-    service.getTasks().then(function(results)  {
+  update() {
+    this.service.getTasks().then(results => {
       this.setState({
         taskList: results
       });
-    }.bind(this));
-  }});
+    });
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = App;
 
-
-module.exports = App;
 
 /***/ }),
 /* 193 */
@@ -24018,12 +24034,17 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 211 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/** @jsx React.DOM */const axios = __webpack_require__(84);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
-var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){AddTask[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;AddTask.prototype=Object.create(____SuperProtoOf____Class1);AddTask.prototype.constructor=AddTask;AddTask.__superConstructor__=____Class1;
-  function AddTask() {"use strict";
+
+class AddTask extends React.Component {
+  constructor() {
+    super();
+
     this.state = {
       taskText: ''
     };
@@ -24031,62 +24052,80 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
     this.handleChange = this.handleChange.bind(this);
   }
 
-  Object.defineProperty(AddTask.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
-    return (
-      React.createElement("div", {className: "top"}, 
-        React.createElement("span", {className: "spaced-out"}, "Add a task"), 
-        React.createElement("input", {className: "spaced-out", type: "text", value: this.state.taskText, onChange: this.handleChange}), 
-        React.createElement("button", {className: "spaced-out", onClick: this.props.addTask.bind(this, this.state.taskText)}, "Add")
+  render() {
+    return React.createElement(
+      'div',
+      { className: 'top' },
+      React.createElement(
+        'span',
+        { className: 'spaced-out' },
+        'Add a task'
+      ),
+      React.createElement('input', { className: 'spaced-out', type: 'text', value: this.state.taskText, onChange: this.handleChange }),
+      React.createElement(
+        'button',
+        { className: 'spaced-out', onClick: this.props.addTask.bind(this, this.state.taskText) },
+        'Add'
       )
     );
-  }});
+  }
 
-  Object.defineProperty(AddTask.prototype,"handleChange",{writable:true,configurable:true,value:function(event) {"use strict";
+  handleChange(event) {
     this.setState({
       taskText: event.target.value
     });
-  }});
+  }
+}
 
-
-module.exports = AddTask;
+/* harmony default export */ __webpack_exports__["a"] = (AddTask);
 
 /***/ }),
 /* 212 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/** @jsx React.DOM */const Task = __webpack_require__(213);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(213);
 
-const TaskList = function($__0   )  {var taskList=$__0.taskList,deleteTask=$__0.deleteTask;
-  const els = taskList.map(function(task)  {
-    return React.createElement(Task, {task: task, deleteTask: deleteTask});
+
+const TaskList = ({ taskList, deleteTask }) => {
+  const els = taskList.map(task => {
+    return React.createElement(__WEBPACK_IMPORTED_MODULE_0__task__["a" /* default */], { task: task, deleteTask: deleteTask });
   });
 
-  return (
-    React.createElement("div", null, 
-      els
-    )
+  return React.createElement(
+    'div',
+    null,
+    els
   );
 };
 
-module.exports = TaskList;
+/* harmony default export */ __webpack_exports__["a"] = (TaskList);
 
 /***/ }),
 /* 213 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/** @jsx React.DOM */const service = __webpack_require__(83);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service__ = __webpack_require__(83);
+var _this = this;
 
-const Task = function($__0   )  {var task=$__0.task,deleteTask=$__0.deleteTask;
-  return (
-    React.createElement("div", {className: "task"}, 
-      React.createElement("button", {onClick: deleteTask.bind(this, task)}, "Delete"), 
-      " ", 
-      task
-    )
+
+
+const Task = ({ task, deleteTask }) => {
+  return React.createElement(
+    "div",
+    { className: "task" },
+    React.createElement(
+      "button",
+      { onClick: deleteTask.bind(_this, task) },
+      "Delete"
+    ),
+    "\xA0",
+    task
   );
-}.bind(this)
+};
 
-module.exports = Task;
+/* harmony default export */ __webpack_exports__["a"] = (Task);
 
 /***/ })
 /******/ ]);
