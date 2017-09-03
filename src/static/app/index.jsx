@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import App from './app'
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader'
 
 const render = Component => {
   ReactDOM.render(

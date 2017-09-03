@@ -1,4 +1,4 @@
-import service from'./service';
+import service from'./service'
 
 const Task = ({task, deleteTask}) => {
   return (

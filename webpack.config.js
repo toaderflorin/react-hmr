@@ -2,14 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './src/static/app/index.jsx',
+  // entry: './src/index.js',
 
-  // entry: [
-  //   "webpack-dev-server/client?http://localhost:8080", // WebpackDevServer host and port
-  //   // "webpack/hot/only-dev-server", // "only" stops HMR on syntax errors
-  //   // "react-hot-loader/patch", // make sure the HMR package is included
-  //   "./src/index" // our application entry point
-  // ],
+  entry: [
+    "webpack-dev-server/client?http://localhost:8080", // WebpackDevServer host and port
+    "webpack/hot/only-dev-server", // "only" stops HMR on syntax errors
+    // "react-hot-loader/patch", // make sure the HMR package is included
+    "./src/index.js" // our application entry point
+  ],
   output: {
     path: path.resolve(__dirname, 'src/static'),
     filename: 'bundle.js',
@@ -28,5 +28,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  devServer: {
+    hot: true,
+    contentBase: './src'
+  }
 }

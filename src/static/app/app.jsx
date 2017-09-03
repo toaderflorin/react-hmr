@@ -1,10 +1,10 @@
-import Service from './service';
-import AddTask from './addTask';
-import TaskList from './taskList';
+import Service from './service'
+import AddTask from './addTask'
+import TaskList from './taskList'
 
 export default class App extends React.Component {
   constructor() {
-    super();
+    super()
 
     this.addTask = this.addTask.bind(this)
     this.deleteTask = this.deleteTask.bind(this)
@@ -53,7 +53,7 @@ export default class App extends React.Component {
     this.service.getTasks().then((results) => {
       this.setState({
         taskList: results
-      });
-    });
+      })
+    })
   }
 }
