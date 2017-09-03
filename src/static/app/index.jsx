@@ -8,12 +8,12 @@ const render = Component => {
       <Component />
     </AppContainer>,
     document.getElementById('root')
-  );
+  )
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   // ReactDOM.render(<App></App>, document.getElementById('root'))
-  render(App);
+  render(App)
 })
 
 if (module.hot) {
