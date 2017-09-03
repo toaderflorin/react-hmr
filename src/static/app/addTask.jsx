@@ -24,7 +24,7 @@ class AddTask extends React.Component {
   handleChange(event) {
     this.setState({
       taskText: event.target.value
-    });
+    })
   }
 }
 

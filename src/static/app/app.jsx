@@ -34,7 +34,7 @@ export default class App extends React.Component {
       alert('Plese enter some text.')
     }
 
-    const index = this.state.taskList.indexOf(text);
+    const index = this.state.taskList.indexOf(text)
     
     if (index === -1) {
       this.service.addTask(text).then(this.update)

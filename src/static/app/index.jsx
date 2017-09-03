@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 if (module.hot) {
-  module.hot.accept('./containers/rootContainer', () => { render(RootContainer) })
+  module.hot.accept('./app', () => { render(App) })
 }
