@@ -3,7 +3,7 @@ import axios from 'axios'
 export default class TaskService {
   getTasks() {
     return new Promise((resolve, reject) => {
-      axios.get('/tasks').then((response) => {
+      axios.get('/api/tasks').then((response) => {
         resolve(response.data)
       });
     });    
@@ -11,7 +11,7 @@ export default class TaskService {
 
   addTask(text) {
     return new Promise((resolve, reject) => {
-      axios.post('/tasks', {task: text}).then((response) => {
+      axios.post('/api/tasks', {task: text}).then((response) => {
         resolve()
       });
     });
@@ -20,7 +20,7 @@ export default class TaskService {
   deleteTask(task) {
     console.log('Removing task.')
     return new Promise((resolve, reject) => {
-      axios.delete('/tasks/' + task).then(() => {
+      axios.delete('/api/tasks/' + task).then(() => {
         resolve()
       });
     });

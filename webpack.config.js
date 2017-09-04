@@ -2,13 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  // entry: './src/app/index.jsx',
-
   entry: [
-    "webpack-dev-server/client?http://localhost:8080", // WebpackDevServer host and port
-    "webpack/hot/only-dev-server", // "only" stops HMR on syntax errors
-    // "react-hot-loader/patch", // make sure the HMR package is included
-    "./src/static/app/index.jsx" // our application entry point
+    "babel-polyfill",
+    "webpack-dev-server/client?http://localhost:9000",
+    "webpack/hot/only-dev-server",
+    "react-hot-loader/patch",
+    "./src/static/app/index.jsx"
   ],
   output: {
     path: path.resolve(__dirname, 'src/static'),
@@ -29,13 +28,12 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
-  devServer: {
+  devServer: {  
+    proxy: {
+      '*': 'http://localhost:3000'
+    },
     hot: true,
-    contentBase: './src/static'
-  },
-  // target: "node"
-  // node: {
-  //   // fs: 'empty',
-  //   // net: 'empty'
-  // }
+    contentBase: './src/static', 
+    port: 80     
+  }
 }

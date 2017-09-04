@@ -7,7 +7,7 @@ new WebpackWebServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
   proxy: {
-    "*": "http://localhost:3000"  
+    "/api": "http://localhost:3000"  
   }
 }).listen(8080, 'localhost', (err, result) => {
   console.log('Listening...')
