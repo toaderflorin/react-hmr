@@ -34,6 +34,6 @@ module.exports = {
     },
     hot: true,
     contentBase: './src/static', 
-    port: 80     
+    port: 9000   
   }
 }

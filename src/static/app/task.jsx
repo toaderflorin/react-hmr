@@ -7,7 +7,7 @@ const Task = ({task, deleteTask}) => {
       &nbsp;
       {task}
     </div>
-  );
+  )
 }
 
 export default Task

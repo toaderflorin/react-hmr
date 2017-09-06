@@ -3,22 +3,29 @@ import axios from 'axios'
 class AddTask extends React.Component {
   constructor() {
     super()
-    
+    this.handleChange = this.handleChange.bind(this)
+    // this.componentWillMount = this.componentWillMount.bind(this)
+    this.render = this.render.bind(this)
+    this.setState = this.setState.bind(this)
+
     this.state = {
       taskText: ''
-    };
-    
-    this.handleChange = this.handleChange.bind(this)
+    }
   }
 
   render() {
-    return (
-      <div className="top">
-        <span>Add a task</span>
-        <input type="text" value={this.state.taskText} onChange={this.handleChange} />
-        <button onClick={this.props.addTask.bind(this, this.state.taskText)}>Add</button>
-      </div>
-    )
+    console.log(this)
+    if (!this.props) {
+      return <div></div>
+    } else {
+      return (
+        <div className="top">
+          <span>Add a task</span>
+          <input type="text" value={this.state.taskText} onChange={this.handleChange} />
+          <button onClick={this.props.addTask.bind(this, this.state.taskText)}>Add</button>
+        </div>
+      )
+    }
   }
 
   handleChange(event) {

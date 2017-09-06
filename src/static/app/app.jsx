@@ -6,14 +6,17 @@ export default class App extends React.Component {
   constructor() {
     super()
 
-    this.addTask = this.addTask.bind(this)
+    // this.addTask = this.addTask.bind(this)
     this.deleteTask = this.deleteTask.bind(this)
     this.update = this.update.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
     this.service = new Service()
+    this.setState = this.setState.bind(this)
+    this.render = this.render.bind(this)
 
     this.state = {
       taskList: []
-    };
+    }
   }
 
   componentDidMount() {
